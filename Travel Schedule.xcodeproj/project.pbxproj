@@ -11,14 +11,30 @@
 		4B11EFF32D06CDE5007C15F5 /* OpenAPIURLSession in Frameworks */ = {isa = PBXBuildFile; productRef = 4B11EFF22D06CDE5007C15F5 /* OpenAPIURLSession */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		4BD5AD222D0D7EFF007B5205 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B11EFD22D06CCAF007C15F5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4B11EFD92D06CCAF007C15F5;
+			remoteInfo = "Travel Schedule";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		4B11EFDA2D06CCAF007C15F5 /* Travel Schedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Travel Schedule.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BD5AD1E2D0D7EFF007B5205 /* Travel ScheduleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Travel ScheduleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		4B11EFDC2D06CCAF007C15F5 /* Travel Schedule */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "Travel Schedule";
+			sourceTree = "<group>";
+		};
+		4BD5AD1F2D0D7EFF007B5205 /* Travel ScheduleTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Travel ScheduleTests";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -33,6 +49,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4BD5AD1B2D0D7EFF007B5205 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -40,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				4B11EFDC2D06CCAF007C15F5 /* Travel Schedule */,
+				4BD5AD1F2D0D7EFF007B5205 /* Travel ScheduleTests */,
 				4B11EFDB2D06CCAF007C15F5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				4B11EFDA2D06CCAF007C15F5 /* Travel Schedule.app */,
+				4BD5AD1E2D0D7EFF007B5205 /* Travel ScheduleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -80,6 +105,29 @@
 			productReference = 4B11EFDA2D06CCAF007C15F5 /* Travel Schedule.app */;
 			productType = "com.apple.product-type.application";
 		};
+		4BD5AD1D2D0D7EFF007B5205 /* Travel ScheduleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4BD5AD242D0D7EFF007B5205 /* Build configuration list for PBXNativeTarget "Travel ScheduleTests" */;
+			buildPhases = (
+				4BD5AD1A2D0D7EFF007B5205 /* Sources */,
+				4BD5AD1B2D0D7EFF007B5205 /* Frameworks */,
+				4BD5AD1C2D0D7EFF007B5205 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4BD5AD232D0D7EFF007B5205 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				4BD5AD1F2D0D7EFF007B5205 /* Travel ScheduleTests */,
+			);
+			name = "Travel ScheduleTests";
+			packageProductDependencies = (
+			);
+			productName = "Travel ScheduleTests";
+			productReference = 4BD5AD1E2D0D7EFF007B5205 /* Travel ScheduleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -92,6 +140,10 @@
 				TargetAttributes = {
 					4B11EFD92D06CCAF007C15F5 = {
 						CreatedOnToolsVersion = 16.1;
+					};
+					4BD5AD1D2D0D7EFF007B5205 = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = 4B11EFD92D06CCAF007C15F5;
 					};
 				};
 			};
@@ -115,12 +167,20 @@
 			projectRoot = "";
 			targets = (
 				4B11EFD92D06CCAF007C15F5 /* Travel Schedule */,
+				4BD5AD1D2D0D7EFF007B5205 /* Travel ScheduleTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		4B11EFD82D06CCAF007C15F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BD5AD1C2D0D7EFF007B5205 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -137,12 +197,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4BD5AD1A2D0D7EFF007B5205 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		4B11EFF52D06CE13007C15F5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			productRef = 4B11EFF42D06CE13007C15F5 /* OpenAPIGenerator */;
+		};
+		4BD5AD232D0D7EFF007B5205 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4B11EFD92D06CCAF007C15F5 /* Travel Schedule */;
+			targetProxy = 4BD5AD222D0D7EFF007B5205 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -334,6 +406,52 @@
 			};
 			name = Release;
 		};
+		4BD5AD252D0D7EFF007B5205 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4644EDH5S5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "companyHolder.Travel-ScheduleTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Travel Schedule.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Travel Schedule";
+			};
+			name = Debug;
+		};
+		4BD5AD262D0D7EFF007B5205 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4644EDH5S5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "companyHolder.Travel-ScheduleTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Travel Schedule.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Travel Schedule";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -351,6 +469,15 @@
 			buildConfigurations = (
 				4B11EFE92D06CCB0007C15F5 /* Debug */,
 				4B11EFEA2D06CCB0007C15F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4BD5AD242D0D7EFF007B5205 /* Build configuration list for PBXNativeTarget "Travel ScheduleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BD5AD252D0D7EFF007B5205 /* Debug */,
+				4BD5AD262D0D7EFF007B5205 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

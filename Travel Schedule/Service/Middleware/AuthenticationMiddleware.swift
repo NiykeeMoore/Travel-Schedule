@@ -13,15 +13,15 @@ import struct Foundation.URL
 struct AuthenticationMiddleware: ClientMiddleware {
     
     private let apikey: String
-
+    
     init(apikey: String) {
         if apikey.isEmpty {
-            fatalError("Specify the API access key.")
+            assertionFailure("Specify the API access key.")
         }
-
+        
         self.apikey = apikey
     }
-
+    
     func intercept(
         _ request: HTTPRequest,
         body: HTTPBody?,
@@ -31,7 +31,7 @@ struct AuthenticationMiddleware: ClientMiddleware {
     ) async throws -> (HTTPResponse, HTTPBody?) {
         var request = request
         request.headerFields[.authorization] = "\(YandexAPIConfig.APIKEY)"
-
+        
         return try await next(request, body, baseURL)
     }
 }
