@@ -10,9 +10,9 @@ import SwiftUI
 struct RootTabView: View {
     @Binding var schedule: Schedule
     @Binding var darkMode: Bool
-    @State var navPath: [ViewsRouter] = []
-    @State var direction: Int = .departure
-    @State var stories: [Story] = Story.sampleData
+    @State private var navPath: [ViewsRouter] = []
+    @State private var direction: Int = .departure
+    @State private var stories: [Story] = Story.sampleData
     
     var body: some View {
         NavigationStack(path: $navPath) {

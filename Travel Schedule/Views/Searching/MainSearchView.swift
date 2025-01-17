@@ -51,11 +51,8 @@ struct MainSearchView: View {
                     .foregroundColor(.ccAlwaysWhite)
                     .frame(width: 36)
                 Button {
-                    (
-                        schedule.destinations[.departure], schedule.destinations[.arrival]
-                    ) = (
-                        schedule.destinations[.arrival], schedule.destinations[.departure]
-                    )
+                    (schedule.destinations[.departure], schedule.destinations[.arrival]) =
+                    (schedule.destinations[.arrival], schedule.destinations[.departure])
                 } label: {
                     Image(systemName: "arrow.2.squarepath")
                         .foregroundColor(.ccBlue)

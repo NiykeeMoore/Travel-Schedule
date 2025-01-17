@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct CarrierView: View {
-    @State var carrier: Carrier
+    @State private var carrier: Carrier
     @Environment(\.openURL) private var openURL
+    
+    init(carrier: Carrier) {
+        self.carrier = carrier
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {

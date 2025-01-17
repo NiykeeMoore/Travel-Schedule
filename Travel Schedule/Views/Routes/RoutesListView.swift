@@ -7,11 +7,9 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct RoutesListView: View {
     @Binding var schedule: Schedule
-    @State var currentFilter = Filter()
+    @State private var currentFilter = Filter()
     
     private var departure: String {
         schedule.destinations[.departure].cityTitle + " (" + schedule.destinations[.departure].stationTitle + ") "

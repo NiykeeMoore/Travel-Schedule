@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct RowSearchView: View {
-    @State var rowString: String
+    @State private var rowString: String
+    
+    init(rowString: String) {
+        self.rowString = rowString
+    }
     
     var body: some View {
         HStack(spacing: 0) {

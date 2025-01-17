@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct SearchNothingView: View {
-    @State var notification: String
+    @State private var notification: String
+    
+    init(notification: String) {
+        self.notification = notification
+    }
     
     var body: some View {
         Spacer()

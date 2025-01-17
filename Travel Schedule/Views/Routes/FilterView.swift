@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FilterView: View {
     @Binding var filter: Filter
-    @State var currentFilter = Filter()
+    @State private var currentFilter = Filter()
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -53,7 +53,7 @@ struct FilterView: View {
             if currentFilter != filter {
                 Button {
                     filter = currentFilter
-                    self.presentationMode.wrappedValue.dismiss()
+                    presentationMode.wrappedValue.dismiss()
                 } label: {
                     Text("Применить")
                         .font(.boldSmall)

@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct SetCustomNavigationBar: ViewModifier {
-    @State var title: String
+    @State private var title: String
+    
+    init(title: String) {
+        self.title = title
+    }
     
     func body(content: Content) -> some View {
         content

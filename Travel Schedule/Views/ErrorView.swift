@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct ErrorView: View {
-    @State var errorType: ErrorType
+    @State private var errorType: ErrorType
+    
+    init(errorType: ErrorType) {
+        self.errorType = errorType
+    }
     
     var body: some View {
         Image(errorType.imageName)

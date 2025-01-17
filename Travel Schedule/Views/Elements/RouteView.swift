@@ -8,9 +8,14 @@
 import SwiftUI
 
 struct RouteView: View {
-    @State var route: Route
-    @State var carrier: Carrier
-
+    @State private var route: Route
+    @State private var carrier: Carrier
+    
+    init(route: Route, carrier: Carrier) {
+        self.route = route
+        self.carrier = carrier
+    }
+    
     var body: some View {
         VStack(spacing: 0) {
             HStack(spacing: 8) {
@@ -24,11 +29,10 @@ struct RouteView: View {
                         Text(carrier.title)
                             .font(.regMedium)
                             .foregroundStyle(.ccAlwaysBlack)
-                        if !route.isDirect {
-                            Text("С пересадкой в \(route.connectionStation)")
-                                .font(.regSmall)
-                                .foregroundStyle(.ccRed)
-                        }
+                        Text("С пересадкой в \(route.connectionStation)")
+                            .font(.regSmall)
+                            .foregroundStyle(.ccRed)
+                            .opacity(route.isDirect ? 0 : 1)
                     }
                     Spacer()
                     Text(route.date)
@@ -38,7 +42,7 @@ struct RouteView: View {
             }
             .padding(.top, 14)
             .padding(.trailing, 7)
-
+            
             HStack(spacing: 0) {
                 Text(route.departureTime)
                     .font(.regMedium)

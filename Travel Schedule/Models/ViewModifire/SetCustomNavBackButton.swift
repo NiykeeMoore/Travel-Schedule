@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SetCustomNavBackButton: ViewModifier {
     @Environment(\.dismiss) var dismiss
+    
     @ViewBuilder
     @MainActor
     func body(content: Content) -> some View {

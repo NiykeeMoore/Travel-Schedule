@@ -11,7 +11,6 @@ struct StoriesListView: View {
     @Binding var stories: [Story]
     
     private let rows = [GridItem(.flexible())]
-    private let stat = true
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {

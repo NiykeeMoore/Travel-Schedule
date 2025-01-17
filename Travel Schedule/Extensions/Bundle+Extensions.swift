@@ -8,11 +8,11 @@
 import Foundation
 
 extension Bundle {
-    public var appBuild: String {
+    var appBuild: String {
         getInfo("CFBundleVersion")
     }
     
-    public var appVersionLong: String {
+    var appVersionLong: String {
         getInfo("CFBundleShortVersionString")
     }
     
