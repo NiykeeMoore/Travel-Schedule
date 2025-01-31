@@ -12,21 +12,21 @@ struct RootTabView: View {
     @Binding var darkMode: Bool
     @State private var navPath: [ViewsRouter] = []
     @State private var direction: Int = .departure
-    @State private var stories: [Story] = Story.sampleData
+    @State private var stories: [Story] = Story.mockData
     
     var body: some View {
         NavigationStack(path: $navPath) {
             TabView {
                 SearchTabView(stories: $stories, schedule: $schedule, navPath: $navPath, direction: $direction)
                     .tabItem {
-                        Image(systemName: "arrow.up.message.fill")
+                        AppImages.Tabs.schedule
                     }
                 SettingsView(darkMode: $darkMode)
                     .tabItem {
-                        Image(systemName: "gearshape.fill")
+                        AppImages.Tabs.settings
                     }
             }
-            .accentColor(.ccBlack)
+            .accentColor(AppColors.LightDark.black)
             .toolbar(.visible, for: .tabBar)
             .navigationDestination(for: ViewsRouter.self) { pathValue in
                 switch pathValue {

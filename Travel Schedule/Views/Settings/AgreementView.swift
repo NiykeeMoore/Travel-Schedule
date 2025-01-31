@@ -10,6 +10,7 @@ import SwiftUI
 struct AgreementView: View {
     @State private var isPresentWebView = false
     
+    private let title = "Пользовательское соглашение"
     private let randomBool: Bool = Bool.random()
     private let urlString: String
     
@@ -25,7 +26,7 @@ struct AgreementView: View {
                 if let url = URL(string: urlString) {
                     WebView(url: url)
                         .ignoresSafeArea(.all, edges: .bottom)
-                        .setCustomNavigationBar(title: "Пользовательское соглашение")
+                        .setCustomNavigationBar(title: title)
                 }
             } else {
                 ErrorView(errorType: Bool.random() ? .connectionError : .serverError)

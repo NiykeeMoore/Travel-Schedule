@@ -8,16 +8,20 @@
 import SwiftUI
 
 struct CheckboxToggleStyle: ToggleStyle {
-    func makeBody(configuration: Self.Configuration) -> some View {
-        HStack(spacing: 0) {
+    func makeBody(configuration: Configuration) -> some View {
+        HStack(spacing: .zero) {
             configuration.label
             
             Spacer()
             
-            Image(systemName: configuration.isOn ? "checkmark.square.fill": "square")
+            (configuration.isOn ? AppImages.Checkbox.on : AppImages.Checkbox.off)
                 .resizable()
-                .frame(width: 24, height: 24)
+                .frame(width: AppSizes.Size.toggle, height: AppSizes.Size.toggle)
                 .onTapGesture { configuration.isOn.toggle() }
         }
     }
+}
+
+extension ToggleStyle where Self == CheckboxToggleStyle {
+    static var checkBox: Self { Self() }
 }

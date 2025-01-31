@@ -20,9 +20,9 @@ struct SetCustomNavBackButton: ViewModifier {
                     Button {
                         dismiss()
                     } label: {
-                        Image(systemName: "chevron.backward")
+                        AppImages.Icons.backward
                             .imageScale(.large)
-                            .foregroundColor(.ccBlack)
+                            .foregroundColor(AppColors.LightDark.black)
                     }
                 }
             }

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct CityView: View {
+    private let title = "Выбор города"
+    private let notification = "Город не найден"
+    
     @Binding var schedule: Schedule
     @Binding var navPath: [ViewsRouter]
     @Binding var direction: Int
@@ -21,10 +24,10 @@ struct CityView: View {
     }
     
     var body: some View {
-        VStack(spacing: 0) {
+        VStack(spacing: .zero) {
             SearchBarView(searchText: $searchString)
             if searchingResults.isEmpty {
-                SearchNothingView(notification: "Город не найден")
+                SearchResultEmptyView(notification: notification)
             } else {
                 ScrollView(.vertical) {
                     ForEach(searchingResults) { city in
@@ -35,15 +38,15 @@ struct CityView: View {
                             schedule.destinations[direction].cityTitle = city.title
                         })
                         .setRowElement()
-                        .padding(.vertical, .spacerL)
+                        .padding(.vertical, AppSizes.Spacing.large)
                     }
                 }
-                .padding(.vertical, .spacerL)
+                .padding(.vertical, AppSizes.Spacing.large)
             }
             Spacer()
         }
-        .setCustomNavigationBar(title: "Выбор города")
-        .foregroundStyle(.ccBlack)
+        .setCustomNavigationBar(title: title)
+        .foregroundStyle(AppColors.LightDark.black)
         .onAppear {
             searchString = String()
         }
