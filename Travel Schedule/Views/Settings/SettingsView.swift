@@ -15,11 +15,11 @@ struct SettingsView: View {
         static let version = "Версия \(Bundle.main.appVersionLong).\(Bundle.main.appBuild)"
     }
     
-    @Binding var darkMode: Bool
+    @EnvironmentObject var settings: SettingsViewModel
     
     var body: some View {
         VStack(spacing: .zero) {
-            Toggle(Titles.darkMode, isOn: $darkMode)
+            Toggle(Titles.darkMode, isOn: $settings.darkMode)
                 .setRowElement()
                 .tint(AppColors.Universal.blue)
             NavigationLink {
@@ -45,6 +45,7 @@ struct SettingsView: View {
 
 #Preview {
     NavigationStack {
-        SettingsView(darkMode: .constant(false))
+        SettingsView()
+            .environmentObject(SettingsViewModel())
     }
 }

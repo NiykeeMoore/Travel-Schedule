@@ -9,7 +9,6 @@ import SwiftUI
 
 struct RootTabView: View {
     @Binding var schedule: Schedule
-    @Binding var darkMode: Bool
     @State private var navPath: [ViewsRouter] = []
     @State private var direction: JourneyType = .departure
     @State private var stories: [Story] = Story.mockData
@@ -24,7 +23,7 @@ struct RootTabView: View {
                     .tabItem {
                         AppImages.Tabs.schedule
                     }
-                SettingsView(darkMode: $darkMode)
+                SettingsView()
                     .tabItem {
                         AppImages.Tabs.settings
                     }
@@ -53,5 +52,6 @@ struct RootTabView: View {
 }
 
 #Preview {
-    RootTabView(schedule: .constant(Schedule.sampleData), darkMode: .constant(false))
+    RootTabView(schedule: .constant(Schedule.sampleData))
+        .environmentObject(SettingsViewModel())
 }
