@@ -9,14 +9,17 @@ import SwiftUI
 
 struct SearchButtonView: View {
     private let searchButtonTitle = "Найти"
-    let destinations: [Destination]
+    let destinations: [JourneyType: Destination]
     let route: ViewsRouter
     
     private var isDepartureReady: Bool {
-        !destinations[.departure].cityTitle.isEmpty && !destinations[.departure].stationTitle.isEmpty
+        guard let departure = destinations[.departure] else { return false }
+        return !departure.cityTitle.isEmpty && !departure.stationTitle.isEmpty
     }
+    
     private var isArrivalReady: Bool {
-        !destinations[.arrival].cityTitle.isEmpty && !destinations[.arrival].stationTitle.isEmpty
+        guard let arrival = destinations[.arrival] else { return false }
+        return !arrival.cityTitle.isEmpty && !arrival.stationTitle.isEmpty
     }
     
     var body: some View {
@@ -28,7 +31,7 @@ struct SearchButtonView: View {
         }
     }
     
-    init(for destinations: [Destination], showView route: ViewsRouter) {
+    init(for destinations: [JourneyType: Destination], showView route: ViewsRouter) {
         self.destinations = destinations
         self.route = route
     }

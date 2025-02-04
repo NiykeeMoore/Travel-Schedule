@@ -13,7 +13,7 @@ struct CityView: View {
     
     @Binding var schedule: Schedule
     @Binding var navPath: [ViewsRouter]
-    @Binding var direction: Int
+    @Binding var direction: JourneyType
     
     @State private var searchString = String()
     
@@ -35,7 +35,10 @@ struct CityView: View {
                             RowSearchView(rowString: city.title)
                         }
                         .simultaneousGesture(TapGesture().onEnded {
-                            schedule.destinations[direction].cityTitle = city.title
+                            if var destination = schedule.destinations[direction] {
+                                destination.cityTitle = city.title
+                                schedule.destinations[direction] = destination
+                            }
                         })
                         .setRowElement()
                         .padding(.vertical, AppSizes.Spacing.large)
@@ -55,6 +58,6 @@ struct CityView: View {
 
 #Preview {
     NavigationStack {
-        CityView(schedule: .constant(Schedule.sampleData), navPath: .constant([]), direction: .constant(0))
+        CityView(schedule: .constant(Schedule.sampleData), navPath: .constant([]), direction: .constant(.departure))
     }
 }

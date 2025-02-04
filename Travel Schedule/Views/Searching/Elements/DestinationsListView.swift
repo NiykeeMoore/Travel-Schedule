@@ -8,21 +8,20 @@
 import SwiftUI
 
 struct DestinationsListView: View {
-    let destinations: [Destination]
+    let destinations: [JourneyType: Destination]
     private let dummyDirection = ["Откуда", "Куда"]
-    @Binding var directionId: Int
+    @Binding var directionId: JourneyType
 
     var body: some View {
         VStack(alignment: .leading, spacing: .zero) {
-            ForEach(Array(destinations.enumerated()), id: \.offset) { index, destination in
+            ForEach(JourneyType.allCases, id: \.self) { journeyType in
+                let destination = destinations[journeyType] ?? Destination()
                 let city = destination.cityTitle
-                let station = destination.stationTitle.isEmpty
-                ? ""
-                : " (" + destination.stationTitle + ")"
-                let destinationLabel = city.isEmpty
-                ? dummyDirection[index]
-                : city + station
-                return NavigationLink(value: ViewsRouter.cityView) {
+                let station = destination.stationTitle.isEmpty ? "" : " (" + destination.stationTitle + ")"
+                let dummyText = dummyDirection[journeyType.rawValue]
+                let destinationLabel = city.isEmpty ? dummyText : city + station
+                
+                NavigationLink(value: ViewsRouter.cityView) {
                     HStack {
                         Text(destinationLabel)
                             .foregroundStyle(city.isEmpty ? AppColors.Universal.gray : AppColors.Universal.black)
@@ -32,7 +31,7 @@ struct DestinationsListView: View {
                     .frame(maxWidth: .infinity, maxHeight: AppSizes.Height.searchingRow)
                 }
                 .simultaneousGesture(TapGesture().onEnded {
-                    directionId = index
+                    directionId = journeyType
                 })
             }
         }
@@ -44,8 +43,10 @@ struct DestinationsListView: View {
 
 #Preview {
     VStack {
-        DestinationsListView(destinations: Destination.emptyDestination, directionId: .constant(0))
-        DestinationsListView(destinations: Destination.sampleData, directionId: .constant(0))
+        DestinationsListView(destinations: Destination.emptyDestinations,
+                             directionId: .constant(.departure))
+        DestinationsListView(destinations: Destination.sampleData,
+                             directionId: .constant(.departure))
     }
     .padding()
     .background(AppColors.Universal.blue)

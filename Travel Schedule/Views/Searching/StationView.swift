@@ -13,7 +13,7 @@ struct StationView: View {
     
     @Binding var schedule: Schedule
     @Binding var navPath: [ViewsRouter]
-    @Binding var direction: Int
+    @Binding var direction: JourneyType
     
     @State private var searchString = String()
     
@@ -32,7 +32,10 @@ struct StationView: View {
                 ScrollView(.vertical) {
                     ForEach(searchingResults) { station in
                         Button {
-                            schedule.destinations[direction].stationTitle = station.title
+                            if var destination = schedule.destinations[direction] {
+                                destination.stationTitle = station.title
+                                schedule.destinations[direction] = destination
+                            }
                             navPath.removeAll()
                         } label: {
                             RowSearchView(rowString: station.title)

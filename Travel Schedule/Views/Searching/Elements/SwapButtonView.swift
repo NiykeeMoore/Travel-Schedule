@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SwapButtonView: View {
-    @Binding var destinations: [Destination]
+    @Binding var destinations: [JourneyType: Destination]
     
     var body: some View {
         ZStack {

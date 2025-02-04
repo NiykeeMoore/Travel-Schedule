@@ -10,11 +10,12 @@ import SwiftUI
 struct MainSearchView: View {
     @Binding var schedule: Schedule
     @Binding var navPath: [ViewsRouter]
-    @Binding var directionId: Int
+    @Binding var directionId: JourneyType
     
     var body: some View {
         HStack(alignment: .center, spacing: AppSizes.Spacing.large) {
-            DestinationsListView(destinations: schedule.destinations, directionId: $directionId)
+            DestinationsListView(destinations: schedule.destinations,
+                                 directionId: $directionId)
             
             SwapButtonView(destinations: $schedule.destinations)
         }
@@ -33,6 +34,8 @@ struct MainSearchView: View {
 
 #Preview {
     NavigationStack {
-        MainSearchView(schedule: .constant(Schedule.sampleData), navPath: .constant([]), directionId: .constant(0))
+        MainSearchView(schedule: .constant(Schedule.sampleData),
+                       navPath: .constant([]),
+                       directionId: .constant(.departure))
     }
 }

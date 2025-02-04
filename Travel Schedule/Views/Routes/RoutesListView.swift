@@ -15,11 +15,13 @@ struct RoutesListView: View {
     private let buttonTitle = "Уточнить время"
     
     private var departure: String {
-        schedule.destinations[.departure].cityTitle + " (" + schedule.destinations[.departure].stationTitle + ") "
+        let destination = schedule.destinations[.departure] ?? Destination()
+        return destination.cityTitle + " (" + destination.stationTitle + ")"
     }
     
     private var arrival: String {
-        schedule.destinations[.arrival].cityTitle + " (" + schedule.destinations[.arrival].stationTitle + ") "
+        let destination = schedule.destinations[.arrival] ?? Destination()
+        return destination.cityTitle + " (" + destination.stationTitle + ") "
     }
     
     private var filteredRoutes: [Route] {
