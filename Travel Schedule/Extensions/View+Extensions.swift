@@ -19,4 +19,8 @@ extension View {
     func setCustomNavigationBar(title: String = "") -> some View {
         modifier(SetCustomNavigationBar(title: title))
     }
+    
+    func setCustomButton(width: CGFloat? = nil, padding: Edge.Set) -> some View {
+        modifier(SetCustomButton(width: width, padding: padding))
+    }
 }

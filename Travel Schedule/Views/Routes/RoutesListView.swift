@@ -11,12 +11,17 @@ struct RoutesListView: View {
     @Binding var schedule: Schedule
     @State private var currentFilter = Filter()
     
+    private let notification = "Вариантов нет"
+    private let buttonTitle = "Уточнить время"
+    
     private var departure: String {
-        schedule.destinations[.departure].cityTitle + " (" + schedule.destinations[.departure].stationTitle + ") "
+        let destination = schedule.destinations[.departure] ?? Destination()
+        return destination.cityTitle + " (" + destination.stationTitle + ")"
     }
     
     private var arrival: String {
-        schedule.destinations[.arrival].cityTitle + " (" + schedule.destinations[.arrival].stationTitle + ") "
+        let destination = schedule.destinations[.arrival] ?? Destination()
+        return destination.cityTitle + " (" + destination.stationTitle + ") "
     }
     
     private var filteredRoutes: [Route] {
@@ -39,12 +44,12 @@ struct RoutesListView: View {
     }
     
     var body: some View {
-        VStack(spacing: 0) {
-            (Text(departure) + Text(Image(systemName: "arrow.forward")).baselineOffset(-1) + Text(arrival))
-                .font(.boldMedium)
+        VStack(spacing: .zero) {
+            (Text(departure) + Text(AppImages.Icons.arrow).baselineOffset(-1) + Text(arrival))
+                .font(AppFonts.Bold.medium)
             
             if filteredRoutes.isEmpty {
-                SearchNothingView(notification: "Вариантов нет")
+                SearchResultEmptyView(notification: notification)
             } else {
                 ScrollView(.vertical) {
                     ForEach(filteredRoutes) { route in
@@ -57,34 +62,23 @@ struct RoutesListView: View {
                         }
                     }
                 }
-                .padding(.vertical, .spacerL)
+                .padding(.top, AppSizes.Spacing.large)
             }
-            
             Spacer()
-            
             NavigationLink {
                 FilterView(filter: $currentFilter)
             } label: {
-                HStack(alignment: .center, spacing: 4) {
-                    Text("Уточнить время")
-                        .font(.boldSmall)
-                    Image(systemName: "circle.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 8, height: 8)
-                        .foregroundColor(currentFilter == Filter.fullSearch ? .clear : .ccRed)
+                HStack(spacing: AppSizes.Spacing.xSmall) {
+                    ButtonTitleView(title: buttonTitle)
+                    MarkerView(currentFilter: currentFilter)
                 }
-                .frame(maxWidth: .infinity, maxHeight: 60)
-                .background(.ccBlue)
-                .foregroundStyle(.ccAlwaysWhite)
-                .clipShape(RoundedRectangle(cornerRadius: 16))
+                .setCustomButton(padding: .top)
             }
         }
-        .padding(.horizontal, .spacerL)
+        .padding(.horizontal, AppSizes.Spacing.large)
         .setCustomNavigationBar()
     }
 }
-
 #Preview {
     NavigationStack {
         RoutesListView(

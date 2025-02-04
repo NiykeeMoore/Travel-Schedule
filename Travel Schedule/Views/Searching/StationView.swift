@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct StationView: View {
+    private let title = "Выбор станции"
+    private let notification = "Станция не найдена"
+    
     @Binding var schedule: Schedule
     @Binding var navPath: [ViewsRouter]
-    @Binding var direction: Int
+    @Binding var direction: JourneyType
     
     @State private var searchString = String()
     
@@ -21,29 +24,32 @@ struct StationView: View {
     }
     
     var body: some View {
-        VStack(spacing: 0) {
+        VStack(spacing: .zero) {
             SearchBarView(searchText: $searchString)
             if searchingResults.isEmpty {
-                SearchNothingView(notification: "Станция не найдена")
+                SearchResultEmptyView(notification: notification)
             } else {
                 ScrollView(.vertical) {
                     ForEach(searchingResults) { station in
                         Button {
-                            schedule.destinations[direction].stationTitle = station.title
+                            if var destination = schedule.destinations[direction] {
+                                destination.stationTitle = station.title
+                                schedule.destinations[direction] = destination
+                            }
                             navPath.removeAll()
                         } label: {
                             RowSearchView(rowString: station.title)
                         }
                         .setRowElement()
-                        .padding(.vertical, .spacerL)
+                        .padding(.vertical, AppSizes.Spacing.large)
                     }
                 }
-                .padding(.vertical, .spacerL)
+                .padding(.vertical, AppSizes.Spacing.large)
             }
             Spacer()
         }
-        .setCustomNavigationBar(title: "Выбор станции")
-        .foregroundStyle(.ccBlack)
+        .setCustomNavigationBar(title: title)
+        .foregroundStyle(AppColors.LightDark.black)
         .onAppear {
             searchString = String()
         }

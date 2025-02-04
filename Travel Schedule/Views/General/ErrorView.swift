@@ -8,16 +8,12 @@
 import SwiftUI
 
 struct ErrorView: View {
-    @State private var errorType: ErrorType
-    
-    init(errorType: ErrorType) {
-        self.errorType = errorType
-    }
+    let errorType: ErrorType
     
     var body: some View {
         Image(errorType.imageName)
         Text(errorType.description)
-            .font(.boldMedium)
+            .font(AppFonts.Bold.medium)
     }
 }
 

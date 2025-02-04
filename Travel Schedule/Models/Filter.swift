@@ -17,4 +17,5 @@ struct Filter: Hashable {
 
 extension Filter {
     static let fullSearch = Filter()
+    static let customSearch = Filter(isWithTransfers: false, isMorning: false)
 }
