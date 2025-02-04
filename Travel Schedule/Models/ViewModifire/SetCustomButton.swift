@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct SetCustomButton: ViewModifier {
-    @State var width: CGFloat?
-    @State var padding: Edge.Set
+    private let width: CGFloat?
+    private let padding: Edge.Set
+    
+    init(width: CGFloat?, padding: Edge.Set) {
+        self.width = width
+        self.padding = padding
+    }
     
     func body(content: Content) -> some View {
         content

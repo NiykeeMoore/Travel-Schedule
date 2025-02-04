@@ -22,7 +22,7 @@ struct StoryPreviewView: View {
                 .scaledToFill()
                 .frame(width: AppSizes.Width.storyPreview, height: AppSizes.Height.storyPreview)
                 .clipShape(RoundedRectangle(cornerRadius: AppSizes.CornerRadius.large))
-                .opacity(storyPreview.isShowed ? .halfOpacity : .fullOpacity)
+                .opacity(storyPreview.isShowed ? Opacity.halfOpacity : Opacity.fullOpacity)
             
             Text(storyPreview.title)
                 .foregroundColor(AppColors.Universal.white)

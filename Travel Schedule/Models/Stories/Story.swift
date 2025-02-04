@@ -9,11 +9,11 @@ import Foundation
 
 // MARK: - Model structure
 struct Story: Identifiable {
-    var id = UUID()
-    var imageName: String
+    let id = UUID()
+    let imageName: String
     var isShowed: Bool = false
-    var title: String
-    var storyPages: [StoryPage]
+    let title: String
+    let storyPages: [StoryPage]
 }
 
 // MARK: - Model mock data

@@ -10,9 +10,13 @@ import SwiftUI
 struct CarrierView: View {
     private let title = "ИНформация о перевозчике"
     
-    @State var carrier: Carrier
+    @State private var carrier: Carrier
     
     private var carrierTitle: String { "ОАО «\(carrier.title)»" }
+    
+    init(carrier: Carrier) {
+        self.carrier = carrier
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: .zero) {

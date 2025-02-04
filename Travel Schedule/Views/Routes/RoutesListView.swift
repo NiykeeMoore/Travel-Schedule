@@ -45,7 +45,7 @@ struct RoutesListView: View {
         VStack(spacing: .zero) {
             (Text(departure) + Text(AppImages.Icons.arrow).baselineOffset(-1) + Text(arrival))
                 .font(AppFonts.Bold.medium)
-
+            
             if filteredRoutes.isEmpty {
                 SearchResultEmptyView(notification: notification)
             } else {
@@ -66,7 +66,7 @@ struct RoutesListView: View {
             NavigationLink {
                 FilterView(filter: $currentFilter)
             } label: {
-                HStack(alignment: .center, spacing: AppSizes.Spacing.xSmall) {
+                HStack(spacing: AppSizes.Spacing.xSmall) {
                     ButtonTitleView(title: buttonTitle)
                     MarkerView(currentFilter: currentFilter)
                 }
