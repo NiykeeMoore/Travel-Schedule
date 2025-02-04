@@ -22,7 +22,7 @@ final class Travel_ScheduleTests: XCTestCase {
     }
     
     func testFetchThread() async throws {
-        let threadResult = try await services.thread().getThread(uid: "028S_27_2")
+        let threadResult = try await services.thread().getThread(uid: "R_068S_63438") // какой бы код не ввел - нет в базе, хотя на сайте есть
         XCTAssertNoThrow(threadResult)
     }
     

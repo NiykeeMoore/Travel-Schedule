@@ -7,31 +7,25 @@
 
 import SwiftUI
 
+
 struct AgreementView: View {
-    @State private var isPresentWebView = false
-    
     private let title = "Пользовательское соглашение"
-    private let randomBool: Bool = Bool.random()
-    private let urlString: String
-    
-    init() {
-        urlString = randomBool
-            ? "https://developer.apple.com/documentation/technologies"
-            : "https://yandex.ru/legal/practicum_offer"
-    }
-    
+    private let urlString = "https://developer.apple.com/documentation/technologies"
+
+    @State private var isPresentWebView = false
+
     var body: some View {
-        VStack {
-            if randomBool {
-                if let url = URL(string: urlString) {
-                    WebView(url: url)
-                        .ignoresSafeArea(.all, edges: .bottom)
-                        .setCustomNavigationBar(title: title)
-                }
-            } else {
-                ErrorView(errorType: Bool.random() ? .connectionError : .serverError)
-            }
+        if let url = URL(string: urlString) {
+            WebView(url: url)
+                .ignoresSafeArea(.all, edges: .bottom)
+                .setCustomNavigationBar(title: title)
         }
+    }
+}
+
+#Preview {
+    NavigationStack {
+        AgreementView()
     }
 }
 

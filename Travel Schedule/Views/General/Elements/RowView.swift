@@ -7,16 +7,12 @@
 
 import SwiftUI
 
-struct RowSearchView: View {
-    @State private var rowString: String
-    
-    init(rowString: String) {
-        self.rowString = rowString
-    }
-    
+struct RowView: View {
+    @State var title: String
+
     var body: some View {
         HStack(spacing: .zero) {
-            Text(rowString)
+            Text(title)
                 .font(AppFonts.Regular.medium)
             Spacer()
             AppImages.Icons.forward
@@ -26,5 +22,5 @@ struct RowSearchView: View {
 }
 
 #Preview {
-    RowSearchView(rowString: "Moscow")
+    RowView(title: "Moscow")
 }
