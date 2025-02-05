@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 import SVGKit
 
-actor ImageDownloader: Sendable {
+actor ImageDownloader {
     // MARK: - Private properties
     private var cache: [String: Image]
 
