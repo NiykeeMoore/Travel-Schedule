@@ -10,8 +10,8 @@ import SwiftUI
 struct RootTabView: View {
     // MARK: - Properties
     @State private var isError: Bool = false
-    @StateObject var destinationsViewModel: SearchScreenViewModel
-    @StateObject var rootViewModel: RootViewModel
+    @ObservedObject var destinationsViewModel: SearchScreenViewModel
+    @ObservedObject var rootViewModel: RootViewModel
 
     // MARK: - Body
     var body: some View {

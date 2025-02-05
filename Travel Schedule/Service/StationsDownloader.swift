@@ -15,12 +15,11 @@ actor StationsDownloader {
     }
     
     func fetchData() async throws -> [Components.Schemas.Settlements] {
-        if !cache.isEmpty { return cache }
+        guard cache.isEmpty else { return cache }
         let service = YandexAPIService(apikey: YandexAPIConfig.APIKEY)
         let response = try await service.stationsList().getStationsGuide()
         guard let countries = response.countries else { throw ErrorType.serverError }
         countries.forEach {
-            if $0.title == "Украина" { return }
             $0.regions?.forEach {
                 $0.settlements?.forEach { settlement in
                     cache.append(settlement)

@@ -39,10 +39,12 @@ final class SearchScreenViewModel: ObservableObject {
     }
 
     func saveSelected(city: City) {
-        destinations[direction.rawValue].city = city
+        let updateModel = destinations[direction.rawValue].update(newCity: city)
+        destinations[direction.rawValue] = updateModel
     }
 
     func saveSelected(station: Station) {
-        destinations[direction.rawValue].station = station
+        let updateModel = destinations[direction.rawValue].update(newStation: station)
+        destinations[direction.rawValue] = updateModel
     }
 }

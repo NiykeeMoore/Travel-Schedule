@@ -8,11 +8,25 @@
 import Foundation
 
 struct Filter: Hashable, Sendable {
-    var isWithTransfers = true
-    var isAtNight = true
-    var isMorning = true
-    var isAfternoon = true
-    var isEvening = true
+    let isWithTransfers: Bool
+    let isAtNight: Bool
+    let isMorning: Bool
+    let isAfternoon: Bool
+    let isEvening: Bool
+
+    init(
+        isWithTransfers: Bool = true,
+        isAtNight: Bool = true,
+        isMorning: Bool = true,
+        isAfternoon: Bool = true,
+        isEvening: Bool = true
+    ) {
+        self.isWithTransfers = isWithTransfers
+        self.isAtNight = isAtNight
+        self.isMorning = isMorning
+        self.isAfternoon = isAfternoon
+        self.isEvening = isEvening
+    }
 }
 
 extension Filter {

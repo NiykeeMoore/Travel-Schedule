@@ -9,19 +9,23 @@ import Foundation
 
 struct Schedule: Hashable, Identifiable {
     let id = UUID()
-    var cities: [City]
+    let cities: [City]
     let stations: [Station]
-    var destinations: [Destination]
+    let destinations: [Destination]
     let routes: [Route]
     let carriers: [Carrier]
-}
-
-extension Schedule {
-    static let sampleData = Schedule(
-        cities: Mocks.Cities.all,
-        stations: Mocks.Stations.all,
-        destinations: Mocks.Destinations.empty,
-        routes: Mocks.Routes.all,
-        carriers: Mocks.Carriers.all
-    )
+    
+    init(
+        cities: [City],
+        stations: [Station],
+        destinations: [Destination],
+        routes: [Route],
+        carriers: [Carrier]
+    ) {
+        self.cities = cities
+        self.stations = stations
+        self.destinations = destinations
+        self.routes = routes
+        self.carriers = carriers
+    }
 }
