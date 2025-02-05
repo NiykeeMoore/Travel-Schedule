@@ -18,7 +18,17 @@ extension String {
         dateFormatter.dateFormat = "dd MMMM"
         return dateFormatter.string(from: date)
     }
+    
     var returnTimeString: String {
         return String(self.suffix(14).prefix(5))
+    }
+}
+
+extension String {
+    var getLocalizedDuration: String {
+        guard let totalSeconds = Double(self) else { return "API duration format wrong" }
+        let hours = Int(totalSeconds) / 3600
+        let minutes = (Int(totalSeconds) % 3600) / 60
+        return "\(hours) ч \(minutes) мин"
     }
 }

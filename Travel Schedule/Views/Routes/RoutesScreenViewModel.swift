@@ -123,7 +123,7 @@ final class RoutesScreenViewModel: ObservableObject {
                     date: segment.start_date ?? "today",
                     departureTime: (segment.departure ?? "").returnTimeString,
                     arrivalTime: (segment.arrival ?? "").returnTimeString,
-                    durationTime: duration.description.getLocalizedShortDate,
+                    durationTime: duration.description.getLocalizedDuration,
                     connectionStation: "",
                     carrierCode: Int(carrierCode)
                 )
