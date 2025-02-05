@@ -7,11 +7,11 @@
 
 typealias CarrierResponse = Components.Schemas.CarriersResponse
 
-protocol CarrierServiceProtocol {
+protocol CarrierServiceProtocol: Sendable {
     func getCarrier(carrier_code: String) async throws -> CarrierResponse
 }
 
-final class CarrierService: CarrierServiceProtocol {
+actor CarrierService: CarrierServiceProtocol {
     private let client: Client
 
     init(client: Client) {

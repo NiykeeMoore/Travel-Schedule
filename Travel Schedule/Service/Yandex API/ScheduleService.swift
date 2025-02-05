@@ -7,11 +7,11 @@
 
 typealias ScheduleResponse = Components.Schemas.ScheduleResponse
 
-protocol ScheduleServiceProtocol {
+protocol ScheduleServiceProtocol: Sendable {
     func getSchedule(station_code: String) async throws -> ScheduleResponse
 }
 
-final class ScheduleService: ScheduleServiceProtocol {
+actor ScheduleService: ScheduleServiceProtocol {
     private let client: Client
 
     init(client: Client) {

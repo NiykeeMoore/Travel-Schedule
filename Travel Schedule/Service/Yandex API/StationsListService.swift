@@ -10,11 +10,11 @@ import OpenAPIRuntime
 
 typealias StationsResponse = Components.Schemas.StationsResponse
 
-protocol StationsListServiceProtocol {
+protocol StationsListServiceProtocol: Sendable {
     func getStationsGuide() async throws -> StationsResponse
 }
 
-final class StationsListService: StationsListServiceProtocol {
+actor StationsListService: StationsListServiceProtocol {
     private let client: Client
 
     init(client: Client) {
