@@ -72,5 +72,7 @@ private extension RouteView {
 }
 
 #Preview {
-    RouteView(route: Route.sampleData[0], carrier: Carrier.sampleData[1], imageDownloader: ImageDownloader())
+    RouteView(route: Mocks.Routes.all[0],
+              carrier: Mocks.Carriers.rzhd,
+              imageDownloader: ImageDownloader())
 }

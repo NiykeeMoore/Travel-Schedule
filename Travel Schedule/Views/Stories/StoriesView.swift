@@ -179,5 +179,6 @@ private extension StoriesView {
 }
 
 #Preview {
-    StoriesView(stories: .constant(Story.mockData), storyIndex: .constant(2))
+    StoriesView(stories: .constant(Mocks.Stories.allStories),
+                storyIndex: .constant(2))
 }

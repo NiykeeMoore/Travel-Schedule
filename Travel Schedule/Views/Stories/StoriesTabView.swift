@@ -33,7 +33,7 @@ struct StoriesTabView: View {
 
 #Preview {
     StoriesTabView(
-        stories: .constant(Story.mockData),
+        stories: .constant(Mocks.Stories.allStories),
         storyIndex: .constant(1),
         currentPage: .constant(0)
     )

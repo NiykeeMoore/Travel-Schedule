@@ -71,8 +71,8 @@ private extension RouteCarrierView {
 
 #Preview {
     RouteCarrierView(
-        route: Route.sampleData[0],
-        carrier: Carrier.sampleData[0],
+        route: Mocks.Routes.all[0],
+        carrier: Mocks.Carriers.rzhd,
         carrierIcon: .constant(Image(systemName: "cablecar"))
     )
         .background(AppColors.Universal.lightGray)

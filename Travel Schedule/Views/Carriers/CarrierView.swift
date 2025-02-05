@@ -116,6 +116,6 @@ private extension CarrierView {
 
 #Preview {
     NavigationStack {
-        CarrierView(carrier: Carrier.sampleData[0], imageDownloader: ImageDownloader())
+        CarrierView(carrier: Mocks.Carriers.rzhd, imageDownloader: ImageDownloader())
     }
 }

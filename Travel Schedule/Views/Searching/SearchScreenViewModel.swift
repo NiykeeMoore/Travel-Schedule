@@ -24,7 +24,7 @@ final class SearchScreenViewModel: ObservableObject {
         !destinations[JourneyType.arrival.rawValue].station.title.isEmpty
     }
 
-    init(destinations: [Destination] = Destination.emptyDestination) {
+    init(destinations: [Destination] = Mocks.Destinations.empty) {
         self.destinations = destinations
     }
 

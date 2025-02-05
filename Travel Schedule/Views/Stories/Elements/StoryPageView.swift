@@ -69,5 +69,5 @@ private extension StoryPageView {
 }
 
 #Preview {
-    StoryPageView(model: StoryPage.mockData1[0])
+    StoryPageView(model: Mocks.Stories.page1[0])
 }

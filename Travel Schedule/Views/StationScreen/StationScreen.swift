@@ -92,8 +92,9 @@ private extension StationScreen {
     NavigationStack {
         StationScreen(
             navPath: .constant([]),
-            destinationsViewModel: SearchScreenViewModel(destinations: Destination.sampleData),
-            viewModel: StationScreenViewModel(store: [], city: City.sampleData[0])
+            destinationsViewModel: SearchScreenViewModel(destinations: Mocks.Destinations.sample),
+            viewModel: StationScreenViewModel(store: [],
+                                              city: Mocks.Cities.all[0])
         )
     }
 }

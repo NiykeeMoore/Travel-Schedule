@@ -18,10 +18,10 @@ struct Schedule: Hashable, Identifiable {
 
 extension Schedule {
     static let sampleData = Schedule(
-        cities: City.sampleData,
-        stations: Station.sampleData,
-        destinations: Destination.emptyDestination,
-        routes: Route.sampleData,
-        carriers: Carrier.sampleData
+        cities: Mocks.Cities.all,
+        stations: Mocks.Stations.all,
+        destinations: Mocks.Destinations.empty,
+        routes: Mocks.Routes.all,
+        carriers: Mocks.Carriers.all
     )
 }

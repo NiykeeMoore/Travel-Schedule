@@ -102,7 +102,7 @@ private extension MainSearchView {
         MainSearchView(
             navPath: .constant([]),
             rootViewModel: RootViewModel(yandexAPIService: YandexAPIService(apikey: YandexAPIConfig.APIKEY)),
-            viewModel: SearchScreenViewModel(destinations: Destination.sampleData)
+            viewModel: SearchScreenViewModel(destinations: Mocks.Destinations.sample)
         )
     }
 }

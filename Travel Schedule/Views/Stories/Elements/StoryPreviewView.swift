@@ -55,8 +55,8 @@ private extension StoryPreviewView {
 }
 
 #Preview {
-    let newStory = Story.mockData[0]
-    var showedStory = Story.mockData[0]
+    let newStory = Mocks.Stories.allStories[0]
+    var showedStory = Mocks.Stories.allStories[0]
     showedStory.isShowed = true
     return HStack {
         StoryPreviewView(storyPreview: newStory)

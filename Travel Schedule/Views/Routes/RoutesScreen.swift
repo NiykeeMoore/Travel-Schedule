@@ -129,8 +129,8 @@ private extension RoutesScreen {
     NavigationStack {
         RoutesScreen(
             viewModel: RoutesScreenViewModel(
-                destinations: Destination.sampleData,
-                routes: Route.sampleData,
+                destinations: Mocks.Destinations.sample,
+                routes: Mocks.Routes.all,
                 routesDownloader: RoutesDownloader(yandexAPIService: YandexAPIService(apikey: YandexAPIConfig.APIKEY)),
                 imageDownloader: ImageDownloader()
             )

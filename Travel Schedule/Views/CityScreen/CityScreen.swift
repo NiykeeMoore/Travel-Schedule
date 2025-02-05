@@ -66,7 +66,7 @@ private extension CityScreen {
     NavigationStack {
         CityScreen(
             navPath: .constant([]),
-            destinationsViewModel: SearchScreenViewModel(destinations: Destination.sampleData),
+            destinationsViewModel: SearchScreenViewModel(destinations: Mocks.Destinations.sample),
             viewModel: CityScreenViewModel(store: [])
         )
     }

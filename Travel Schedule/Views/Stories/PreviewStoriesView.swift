@@ -10,7 +10,7 @@ import SwiftUI
 struct PreviewStoriesView: View {
     // MARK: - Properties
     private let rows = [GridItem(.flexible())]
-    @State var stories: [Story] = Story.mockData
+    @State var stories: [Story] = Mocks.Stories.allStories
     @State var isStoriesShowing = false
     @State var storyIndex = 0
 
@@ -51,5 +51,5 @@ private extension PreviewStoriesView {
 }
 
 #Preview {
-    PreviewStoriesView(stories: Story.mockData)
+    PreviewStoriesView(stories: Mocks.Stories.allStories)
 }
