@@ -7,11 +7,11 @@
 
 typealias StationThreadsResponse = Components.Schemas.StationThreadsResponse
 
-protocol StationThreadServiceProtocol {
+protocol StationThreadServiceProtocol: Sendable {
     func getThread(uid: String) async throws -> StationThreadsResponse
 }
 
-final class StationThreadService: StationThreadServiceProtocol {
+actor StationThreadService: StationThreadServiceProtocol {
     private let client: Client
 
     init(client: Client) {

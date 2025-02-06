@@ -7,11 +7,11 @@
 
 typealias SearchResponse = Components.Schemas.SearchResponse
 
-protocol SearchServiceProtocol {
+protocol SearchServiceProtocol: Sendable {
     func getSearch(from: String, to: String) async throws -> SearchResponse
 }
 
-final class SearchService: SearchServiceProtocol {
+actor SearchService: SearchServiceProtocol {
     private let client: Client
 
     init(client: Client) {

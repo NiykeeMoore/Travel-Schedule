@@ -7,20 +7,17 @@
 
 import Foundation
 
-struct Destination: Hashable, Identifiable {
+// MARK: - Struct
+struct Destination: Hashable, Identifiable, Sendable {
     let id = UUID()
-    var cityTitle: String = ""
-    var stationTitle: String = ""
-}
+    let city: City
+    let station: Station
+    
+    func update(newCity: City) -> Self {
+        .init(city: newCity, station: station)
+    }
 
-extension Destination {
-    static var emptyDestinations: [JourneyType: Destination] = [
-        .departure: Destination(),
-        .arrival: Destination()
-    ]
-
-    static let sampleData: [JourneyType: Destination] = [
-        .departure: Destination(cityTitle: "Москва", stationTitle: "Ярославский Вокзал"),
-        .arrival: Destination(cityTitle: "Санкт-Петербург", stationTitle: "Балтийский вокзал")
-    ]
+    func update(newStation: Station) -> Self {
+        .init(city: city, station: newStation)
+    }
 }

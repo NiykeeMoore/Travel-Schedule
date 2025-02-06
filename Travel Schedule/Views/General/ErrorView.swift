@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ErrorView: View {
     let errorType: ErrorType
-    
+
     var body: some View {
         Image(errorType.imageName)
         Text(errorType.description)
@@ -18,5 +18,5 @@ struct ErrorView: View {
 }
 
 #Preview {
-    ErrorView(errorType: ErrorType.serverError)
+    ErrorView(errorType: ErrorType.connectionError)
 }

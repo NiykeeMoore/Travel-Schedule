@@ -1,8 +1,8 @@
 //
-//  TimeConfiguration.swift
+//  TimerConfiguration.swift
 //  Travel Schedule
 //
-//  Created by Niykee Moore on 31.01.2025.
+//  Created by Niykee Moore on 04.02.2025.
 //
 
 import Foundation

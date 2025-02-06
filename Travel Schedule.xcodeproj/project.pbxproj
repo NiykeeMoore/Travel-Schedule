@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		4B11EFF02D06CDD3007C15F5 /* OpenAPIRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 4B11EFEF2D06CDD3007C15F5 /* OpenAPIRuntime */; };
 		4B11EFF32D06CDE5007C15F5 /* OpenAPIURLSession in Frameworks */ = {isa = PBXBuildFile; productRef = 4B11EFF22D06CDE5007C15F5 /* OpenAPIURLSession */; };
+		4B51A8202D524D3200211E22 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 4B51A81F2D524D3200211E22 /* Kingfisher */; };
+		4B63AEF12D52556A008E477D /* SVGKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4B63AEF02D52556A008E477D /* SVGKit */; };
+		4B63AEF32D52556A008E477D /* SVGKitSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4B63AEF22D52556A008E477D /* SVGKitSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,9 +29,22 @@
 		4BD5AD1E2D0D7EFF007B5205 /* Travel ScheduleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Travel ScheduleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		4B947D402D52A43E00705748 /* Exceptions for "Travel Schedule" folder in "Travel Schedule" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				ViewModel/SettingsViewModel.swift,
+			);
+			target = 4B11EFD92D06CCAF007C15F5 /* Travel Schedule */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		4B11EFDC2D06CCAF007C15F5 /* Travel Schedule */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				4B947D402D52A43E00705748 /* Exceptions for "Travel Schedule" folder in "Travel Schedule" target */,
+			);
 			path = "Travel Schedule";
 			sourceTree = "<group>";
 		};
@@ -44,7 +60,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B51A8202D524D3200211E22 /* Kingfisher in Frameworks */,
 				4B11EFF02D06CDD3007C15F5 /* OpenAPIRuntime in Frameworks */,
+				4B63AEF32D52556A008E477D /* SVGKitSwift in Frameworks */,
+				4B63AEF12D52556A008E477D /* SVGKit in Frameworks */,
 				4B11EFF32D06CDE5007C15F5 /* OpenAPIURLSession in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -100,6 +119,9 @@
 			packageProductDependencies = (
 				4B11EFEF2D06CDD3007C15F5 /* OpenAPIRuntime */,
 				4B11EFF22D06CDE5007C15F5 /* OpenAPIURLSession */,
+				4B51A81F2D524D3200211E22 /* Kingfisher */,
+				4B63AEF02D52556A008E477D /* SVGKit */,
+				4B63AEF22D52556A008E477D /* SVGKitSwift */,
 			);
 			productName = "Travel Schedule";
 			productReference = 4B11EFDA2D06CCAF007C15F5 /* Travel Schedule.app */;
@@ -160,6 +182,8 @@
 				4B11EFEB2D06CD3D007C15F5 /* XCRemoteSwiftPackageReference "swift-openapi-generator" */,
 				4B11EFEE2D06CDD3007C15F5 /* XCRemoteSwiftPackageReference "swift-openapi-runtime" */,
 				4B11EFF12D06CDE5007C15F5 /* XCRemoteSwiftPackageReference "swift-openapi-urlsession" */,
+				4B51A81E2D524D3200211E22 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				4B63AEEF2D52556A008E477D /* XCRemoteSwiftPackageReference "SVGKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 4B11EFDB2D06CCAF007C15F5 /* Products */;
@@ -271,6 +295,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -328,6 +353,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -367,6 +393,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -401,6 +428,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -414,7 +442,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4644EDH5S5;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "companyHolder.Travel-ScheduleTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -437,7 +465,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4644EDH5S5;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "companyHolder.Travel-ScheduleTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -509,6 +537,22 @@
 				minimumVersion = 1.0.2;
 			};
 		};
+		4B51A81E2D524D3200211E22 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.1.4;
+			};
+		};
+		4B63AEEF2D52556A008E477D /* XCRemoteSwiftPackageReference "SVGKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SVGKit/SVGKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -526,6 +570,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4B11EFEB2D06CD3D007C15F5 /* XCRemoteSwiftPackageReference "swift-openapi-generator" */;
 			productName = "plugin:OpenAPIGenerator";
+		};
+		4B51A81F2D524D3200211E22 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4B51A81E2D524D3200211E22 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		4B63AEF02D52556A008E477D /* SVGKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4B63AEEF2D52556A008E477D /* XCRemoteSwiftPackageReference "SVGKit" */;
+			productName = SVGKit;
+		};
+		4B63AEF22D52556A008E477D /* SVGKitSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4B63AEEF2D52556A008E477D /* XCRemoteSwiftPackageReference "SVGKit" */;
+			productName = SVGKitSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

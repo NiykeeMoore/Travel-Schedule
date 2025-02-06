@@ -29,25 +29,15 @@ struct StoriesView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    // MARK: - View
+    // MARK: - Body
     var body: some View {
         AppColors.Universal.black
             .ignoresSafeArea()
             .overlay {
                 ZStack(alignment: .topTrailing) {
-                    StoriesTabView(stories: $stories, storyIndex: $storyIndex, currentPage: $currentPage)
-                    
-                    StoriesProgressBarView(
-                        pagesCount: pagesCount,
-                        timerConfiguration: timer,
-                        progress: $currentProgress
-                    )
-                    
-                    CloseButtonView {
-                        handleDismiss()
-                    }
-                    .padding(.top, AppSizes.Spacing.Custom.closeButton)
-                    .padding(.trailing, AppSizes.Spacing.small)
+                    fullCoverStory
+                    progressBar
+                    closeButton
                 }
                 .onChange(of: storyIndex) { [storyIndex] newValue in
                     didChangeStory(oldStory: storyIndex, newStory: newValue)
@@ -68,6 +58,42 @@ struct StoriesView: View {
                         }
                 )
             }
+    }
+}
+
+// MARK: - Private views
+private extension StoriesView {
+    var fullCoverStory: some View {
+        StoriesTabView(
+            stories: $stories,
+            storyIndex: $storyIndex,
+            currentPage: $currentPage
+        )
+    }
+    
+    var progressBar: some View {
+        StoriesProgressBarView(
+            pagesCount: pagesCount,
+            timerConfiguration: timer,
+            progress: $currentProgress
+        )
+    }
+    
+    var closeButton: some View {
+        Button {
+            handleDismiss()
+        } label: {
+            ZStack {
+                Circle()
+                    .foregroundStyle(AppColors.Universal.white)
+                AppImages.Icons.cancel
+                    .resizable()
+                    .foregroundStyle(AppColors.Universal.black)
+            }
+            .frame(width: AppSizes.Size.button, height: AppSizes.Size.button)
+        }
+        .padding(.top, AppSizes.Spacing.Custom.closeButton)
+        .padding(.trailing, AppSizes.Spacing.small)
     }
 }
 
@@ -98,6 +124,8 @@ private extension StoriesView {
             }
         }
     }
+    
+    @MainActor
     func didTapStoryPage(at location: CGPoint) {
         let halfScreen = UIScreen.main.bounds.width / 2
         switch (currentPage, location.x) {
@@ -113,12 +141,14 @@ private extension StoriesView {
             }
         }
     }
+    
     func didSwipeDown(gesture: DragGesture.Value) {
         switch (gesture.translation.width, gesture.translation.height) {
         case (-30...30, 0...): handleDismiss()
         default: break
         }
     }
+    
     func handleDismiss() {
         dismiss()
     }
@@ -149,5 +179,6 @@ private extension StoriesView {
 }
 
 #Preview {
-    StoriesView(stories: .constant(Story.mockData), storyIndex: .constant(2))
+    StoriesView(stories: .constant(Mocks.Stories.allStories),
+                storyIndex: .constant(2))
 }
