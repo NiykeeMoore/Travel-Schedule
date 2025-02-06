@@ -10,9 +10,15 @@ import SwiftUI
 struct RootTabView: View {
     // MARK: - Properties
     @State private var isError: Bool = false
-    @ObservedObject var destinationsViewModel: SearchScreenViewModel
-    @ObservedObject var rootViewModel: RootViewModel
-
+    
+    /*
+     Если устанавливаем @ObservedObject,
+     обновление срабатывает только после перехода на экран списка городов и обратно,
+     хотя данные загружаются сразу после запуска приложения
+     */
+    @StateObject var destinationsViewModel: SearchScreenViewModel
+    @StateObject var rootViewModel: RootViewModel
+    
     // MARK: - Body
     var body: some View {
         NavigationStack(path: $rootViewModel.navPath) {
@@ -36,9 +42,9 @@ struct RootTabView: View {
             .toolbar(.visible, for: .tabBar)
             .navigationDestination(for: ViewsRouter.self) { pathValue in
                 switch pathValue {
-                    case .cityView: citiesScreen
-                    case .stationView: stationsScreen
-                    case .routeView: routesScreen
+                case .cityView: citiesScreen
+                case .stationView: stationsScreen
+                case .routeView: routesScreen
                 }
             }
         }
@@ -57,18 +63,18 @@ private extension RootTabView {
             AppImages.Tabs.schedule
         }
     }
-
+    
     var settingsScreenTab: some View {
         SettingsScreen()
             .tabItem {
                 AppImages.Tabs.settings
             }
     }
-
+    
     var errorView: some View {
         ErrorView(errorType: rootViewModel.currentError)
     }
-
+    
     var citiesScreen: some View {
         CityScreen(
             navPath: $rootViewModel.navPath,
@@ -77,7 +83,7 @@ private extension RootTabView {
         )
         .toolbar(.hidden, for: .tabBar)
     }
-
+    
     var stationsScreen: some View {
         StationScreen(
             navPath: $rootViewModel.navPath,
@@ -89,7 +95,7 @@ private extension RootTabView {
         )
         .toolbar(.hidden, for: .tabBar)
     }
-
+    
     var routesScreen: some View {
         RoutesScreen(
             viewModel: RoutesScreenViewModel(
@@ -107,5 +113,5 @@ private extension RootTabView {
         destinationsViewModel: SearchScreenViewModel(),
         rootViewModel: RootViewModel(yandexAPIService: YandexAPIService(apikey: YandexAPIConfig.APIKEY))
     )
-        .environmentObject(SettingsViewModel(yandexAPIService: YandexAPIService(apikey: YandexAPIConfig.APIKEY)))
+    .environmentObject(SettingsViewModel(yandexAPIService: YandexAPIService(apikey: YandexAPIConfig.APIKEY)))
 }

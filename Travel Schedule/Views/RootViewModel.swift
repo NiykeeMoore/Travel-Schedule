@@ -13,26 +13,26 @@ final class RootViewModel: ObservableObject {
     enum State: Equatable {
         case loading, loaded, error
     }
-
+    
     @Published private(set) var state: State = .loading
     @Published private(set) var currentError: ErrorType = .serverError
     @Published var navPath: [ViewsRouter] = []
     @Published private(set) var store: [Components.Schemas.Settlements] = []
-
+    
     private let yandexAPIService: YandexAPIService
     private(set) var stationsDownloader: StationsDownloader
     private(set) var routesDownloader: RoutesDownloader
     private(set) var imageDownloader: ImageDownloader
-
+    
     init(
         yandexAPIService: YandexAPIService
     ) {
-        self.yandexAPIService = YandexAPIService(apikey: YandexAPIConfig.APIKEY)
-        self.stationsDownloader = StationsDownloader(yandexAPIService: YandexAPIService(apikey: YandexAPIConfig.APIKEY))
-        self.routesDownloader = RoutesDownloader(yandexAPIService: YandexAPIService(apikey: YandexAPIConfig.APIKEY))
+        self.yandexAPIService = yandexAPIService
+        self.stationsDownloader = StationsDownloader(yandexAPIService: yandexAPIService)
+        self.routesDownloader = RoutesDownloader(yandexAPIService: yandexAPIService)
         self.imageDownloader = ImageDownloader()
     }
-
+    
     func fetchData() throws {
         Task {
             state = .loading
