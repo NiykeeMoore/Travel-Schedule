@@ -7,8 +7,8 @@
 
 import Foundation
 
-enum ErrorType: Int, CaseIterable {
-    case serverError = 0
+enum ErrorType: Error {
+    case serverError
     case connectionError
     
     var description: String {

@@ -7,11 +7,11 @@
 
 typealias NearestSettlementResponse = Components.Schemas.NearestSettlementResponse
 
-protocol NearestSettlementServiceProtocol {
+protocol NearestSettlementServiceProtocol: Sendable {
     func getNearestSettlement(lat: Double, lng: Double) async throws -> NearestSettlementResponse
 }
 
-final class NearestSettlementService: NearestSettlementServiceProtocol {
+actor NearestSettlementService: NearestSettlementServiceProtocol {
     private let client: Client
 
     init(client: Client) {

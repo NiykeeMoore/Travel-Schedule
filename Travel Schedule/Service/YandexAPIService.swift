@@ -8,7 +8,7 @@
 import Foundation
 import OpenAPIURLSession
 
-protocol YandexAPIServiceProtocol {
+protocol YandexAPIServiceProtocol: Sendable {
     func search() async throws -> SearchServiceProtocol
     func schedule() async throws -> ScheduleServiceProtocol
     func thread() async throws -> StationThreadServiceProtocol
@@ -19,26 +19,22 @@ protocol YandexAPIServiceProtocol {
     func copyright() async throws -> CopyrightServiceProtocol
 }
 
-final class YandexAPIService: YandexAPIServiceProtocol {
+actor YandexAPIService: YandexAPIServiceProtocol {
     private let apikey: String
-
-    private var client: Client {
+    private var client: Client
+    
+    init(apikey: String) {
+        self.apikey = apikey
         let authenticationMiddleware = AuthenticationMiddleware(apikey: self.apikey)
         let logRequestMiddleware = LogRequestMiddleware()
-
-        let client = Client(
+        
+        self.client = Client(
             serverURL: try! Servers.Server1.url(),
             transport: URLSessionTransport(),
             middlewares: [authenticationMiddleware, logRequestMiddleware]
         )
-
-        return client
     }
-
-    init(apikey: String) {
-        self.apikey = apikey
-    }
-
+    
     func search() async throws -> SearchServiceProtocol {
         SearchService(client: client)
     }

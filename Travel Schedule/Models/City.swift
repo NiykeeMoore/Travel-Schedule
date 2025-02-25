@@ -7,19 +7,14 @@
 
 import Foundation
 
-struct City: Hashable, Identifiable {
+// MARK: - Struct
+struct City: Hashable, Identifiable, Sendable {
     let id = UUID()
     let title: String
-}
+    let yandexCode: String
+    let stationsCount: Int
 
-extension City {
-    static let sampleData = [
-        City(title: "Москва"),
-        City(title: "Санкт-Петербург"),
-        City(title: "Сочи"),
-        City(title: "Горный Воздух"),
-        City(title: "Краснодар"),
-        City(title: "Казань"),
-        City(title: "Омск")
-    ]
+    enum Codes: String, CaseIterable, Hashable {
+        case express, yandex, esr, esrCode, yandexCode
+    }
 }

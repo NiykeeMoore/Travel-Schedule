@@ -7,18 +7,12 @@
 
 import Foundation
 
-struct Station: Hashable, Identifiable {
+// MARK: - Struct
+struct Station: Hashable, Identifiable, Sendable {
     let id = UUID()
     let title: String
-}
-
-extension Station {
-    static let sampleData = [
-        Station(title: "Киевский вокзал"),
-        Station(title: "Курский вокзал"),
-        Station(title: "Ярославский вокзал"),
-        Station(title: "Белорусский вокзал"),
-        Station(title: "Савеловский вокзал"),
-        Station(title: "Ленинградский вокзал")
-    ]
+    let type: String
+    let code: String
+    let latitude: Double
+    let longitude: Double
 }

@@ -11,17 +11,21 @@ struct Schedule: Hashable, Identifiable {
     let id = UUID()
     let cities: [City]
     let stations: [Station]
-    var destinations: [JourneyType: Destination]
+    let destinations: [Destination]
     let routes: [Route]
     let carriers: [Carrier]
-}
-
-extension Schedule {
-    static let sampleData = Schedule(
-        cities: City.sampleData,
-        stations: Station.sampleData,
-        destinations: Destination.emptyDestinations,
-        routes: Route.sampleData,
-        carriers: Carrier.sampleData
-    )
+    
+    init(
+        cities: [City],
+        stations: [Station],
+        destinations: [Destination],
+        routes: [Route],
+        carriers: [Carrier]
+    ) {
+        self.cities = cities
+        self.stations = stations
+        self.destinations = destinations
+        self.routes = routes
+        self.carriers = carriers
+    }
 }
